@@ -1,0 +1,62 @@
+// colour palette
+$textColor: #222;
+$white: #FFF;
+$black: #222;
+
+// base size
+$base: 8px;
+
+// animations
+$timing: .2s;
+
+:root {
+    --textColor: #{$textColor};
+    --white: #{$white};
+    --black: #{$black};
+    --trueBlack: #000;
+    --trueWhite: #FFF;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--white);
+    color: var(--textColor);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+// landscape mode mobile devices+
+@media screen and (min-width: 600px) {
+    main {
+        margin: 0 auto;
+        max-width: $base*160;
+    }
+}
+
+// portrait tablets+
+@media screen and (min-width: 750px) {
+    // CSS here
+}
+
+// landscape tablets+
+@media screen and (min-width: 1000px) {
+    // CSS here
+}
+
+// full-screen laptop+
+@media screen and (min-width: 1200px) {
+    // CSS here
+}
+
+// dark mode prefered
+@media (prefers-color-scheme: dark) {
+    :root {
+        --textColor: #{$white};
+        --white: #{$black};
+        --black: #{$white};
+    }
+}
