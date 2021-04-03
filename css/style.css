@@ -1,0 +1,42 @@
+:root {
+  --color-primary--3: #662200;
+  --color-primary--2: #cc4400;
+  --color-primary--1: #993300;
+  --color-primary-0: #ff5500;
+  --color-primary-1: #ff7733;
+  --color-primary-2: #ff9966;
+  --color-primary-3: #ffbb99;
+  --color-neutral-0: black;
+  --color-neutral-1: #333333;
+  --color-neutral-2: #666666;
+  --color-neutral-3: #999999;
+  --color-neutral-4: #cccccc;
+  --color-neutral-5: white;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-neutral-5);
+  color: var(--color-neutral-0);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  padding: 16px;
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: var(--color-neutral-5);
+    color: var(--color-neutral-);
+  }
+}

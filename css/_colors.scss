@@ -1,0 +1,27 @@
+$colors: (
+    primary: (
+        -3: hsl(20, 100%, 20%),
+        -2: hsl(20, 100%, 40%),
+        -1: hsl(20, 100%, 30%),
+        0: hsl(20, 100%, 50%),
+        1: hsl(20, 100%, 60%),
+        2: hsl(20, 100%, 70%),
+        3: hsl(20, 100%, 80%)
+    ),
+    neutral: (
+        0: hsl(0, 0%, 0%),
+        1: hsl(0, 0%, 20%),
+        2: hsl(0, 0%, 40%),
+        3: hsl(0, 0%, 60%),
+        4: hsl(0, 0%, 80%),
+        5: hsl(0, 0%, 100%)
+    )
+);
+
+:root {
+    @each $color, $shade in $colors {
+        @each $prop, $value in $shade {
+            --color-#{$color}-#{$prop}: #{$value};
+        }
+    }
+}
