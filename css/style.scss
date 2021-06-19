@@ -1,5 +1,5 @@
-@use "responsive" as rs;
 @use "colors" as c;
+@use "mixins" as *;
 
 // base size
 $base: 8px;
@@ -21,26 +21,85 @@ body {
     padding: $base*2;
 }
 
+header {
+    nav {
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 $base*4;
+            li {
+                flex: 1;
+                &:not(:first-child) {
+                    flex: 0;
+                    margin: 0 0 0 $base*2;
+                }
+            }
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0 0 $base*4;
+}
+
+h1 {
+    font-size: $base*5;
+}
+
+h2 {
+    font-size: $base*4;
+}
+
+h3 {
+    font-size: $base*3;
+}
+
+h4,
+h5,
+h6 {
+    font-size: $base*2.5;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0 0 $base*4 $base*4;
+}
+
+li:not(:last-child) {
+    margin: 0 0 $base;
+}
+
 // landscape mode AND mobile devices+
-@include rs.mq(600px) {
-    main {
+@include mq(600px) {
+    header,
+    main,
+    footer {
         margin: 0 auto;
         max-width: $base*160;
     }
 }
 
 // portrait tablets+
-@include rs.mq(750px) {
+@include mq(750px) {
     // CSS here
 }
 
 // landscape tablets+
-@include rs.mq(1000px) {
+@include mq(1000px) {
     // CSS here
 }
 
 // full-screen laptop+
-@include rs.mq(1200px) {
+@include mq(1200px) {
     // CSS here
 }
 
@@ -50,4 +109,9 @@ body {
         background-color: var(--color-neutral-5);
         color: var(--color-neutral-);
     }
+}
+
+// reduced motion prefered
+@media (prefers-reduced-motion) {
+    // CSS here
 }

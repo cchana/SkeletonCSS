@@ -23,7 +23,7 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/css\/_responsive.scss" : {
+    "\/css\/_mixins.scss" : {
       "aP" : 0,
       "bl" : 0,
       "dP" : 10,
@@ -31,7 +31,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/css\/_responsive.css",
+      "oAP" : "\/css\/_mixins.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

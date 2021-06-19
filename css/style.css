@@ -1,17 +1,17 @@
 :root {
-  --color-primary--3: #662200;
-  --color-primary--2: #cc4400;
-  --color-primary--1: #993300;
-  --color-primary-0: #ff5500;
-  --color-primary-1: #ff7733;
-  --color-primary-2: #ff9966;
-  --color-primary-3: #ffbb99;
-  --color-neutral-0: black;
-  --color-neutral-1: #333333;
-  --color-neutral-2: #666666;
-  --color-neutral-3: #999999;
-  --color-neutral-4: #cccccc;
-  --color-neutral-5: white;
+  --color-primary--3: hsl(20, 100%, 20%);
+  --color-primary--2: hsl(20, 100%, 30%);
+  --color-primary--1: hsl(20, 100%, 40%);
+  --color-primary-0: hsl(20, 100%, 50%);
+  --color-primary-1: hsl(20, 100%, 60%);
+  --color-primary-2: hsl(20, 100%, 70%);
+  --color-primary-3: hsl(20, 100%, 80%);
+  --color-neutral-0: hsl(0, 0%, 0%);
+  --color-neutral-1: hsl(0, 0%, 20%);
+  --color-neutral-2: hsl(0, 0%, 40%);
+  --color-neutral-3: hsl(0, 0%, 60%);
+  --color-neutral-4: hsl(0, 0%, 80%);
+  --color-neutral-5: hsl(0, 0%, 100%);
 }
 
 html {
@@ -28,8 +28,63 @@ body {
   padding: 16px;
 }
 
+header nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 32px;
+}
+header nav ul li {
+  flex: 1;
+}
+header nav ul li:not(:first-child) {
+  flex: 0;
+  margin: 0 0 0 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0 0 32px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 20px;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0 0 32px 32px;
+}
+
+li:not(:last-child) {
+  margin: 0 0 8px;
+}
+
 @media screen and (min-width: 600px) {
-  main {
+  header,
+main,
+footer {
     margin: 0 auto;
     max-width: 1280px;
   }
