@@ -1,5 +1,9 @@
-@mixin mq($min-size) {
-    @media screen and (min-width: #{$min-size}) {
+@mixin mq($size, $orientation: 0, $min-max: min) {
+    $mediaQueryOrientation: "and (#{$min-max}-width: #{$size})";
+    @if($orientation != 0) {
+        $mediaQueryOrientation: $mediaQueryOrientation + " and (orientation: #{$orientation})";
+    }
+    @media screen #{$mediaQueryOrientation} {
         @content;
     }
 }

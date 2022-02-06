@@ -115,3 +115,15 @@ li:not(:last-child) {
 @media (prefers-reduced-motion) {
     // CSS here
 }
+
+@include mq(600px) {
+    // CSS here
+}
+
+@include mq(600px, portrait) {
+    // CSS here
+}
+
+@include mq(600px, portrait, max) {
+    // CSS here
+}
