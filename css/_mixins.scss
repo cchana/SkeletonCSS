@@ -1,6 +1,6 @@
 @mixin mq($size, $orientation: 0, $min-max: min) {
     $mediaQueryOrientation: "and (#{$min-max}-width: #{$size})";
-    @if($orientation != 0) {
+    @if($orientation == portrait or $orientation == landscape) {
         $mediaQueryOrientation: $mediaQueryOrientation + " and (orientation: #{$orientation})";
     }
     @media screen #{$mediaQueryOrientation} {
