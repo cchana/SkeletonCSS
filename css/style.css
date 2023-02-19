@@ -12,34 +12,67 @@
   --color-neutral-3: hsl(0, 0%, 60%);
   --color-neutral-4: hsl(0, 0%, 80%);
   --color-neutral-5: hsl(0, 0%, 100%);
+  --color-pastels-0: #98FF9855;
+  --color-pastels-1: #E6E6FA55;
+  --color-pastels-2: #FFE5B455;
+  --color-pastels-3: #B0E0E655;
+  --color-pastels-4: #F0808055;
+  --color-pastels-5: #FFB6C155;
+  --color-pastels-6: #87CEFA55;
+  --color-pastels-7: #FFFFE055;
+  --color-pastels-8: #98FB9855;
+  --color-pastels-9: #AFEEEE55;
+  --color-pastels-10: #DB709355;
+  --color-pastels-11: #BC8F8F55;
+  --color-pastels-12: #FFF5EE55;
+  --color-pastels-13: #F0FFF055;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   background-color: var(--color-neutral-5);
   color: var(--color-neutral-0);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0;
-  padding: 16px;
 }
 
+body > header,
+body > main,
+body > footer {
+  padding-inline: max((100vw - 1280px) / 2, 16px);
+}
+
+header {
+  margin: 0 0 16px;
+}
+header nav {
+  padding: 32px 0;
+}
 header nav ul {
   display: flex;
   list-style-type: none;
   margin: 0;
-  padding: 0 0 32px;
+  padding: 0;
 }
 header nav ul li {
   flex: 1;
+  max-width: none;
 }
 header nav ul li:not(:first-child) {
   flex: 0;
   margin: 0 0 0 16px;
+}
+
+footer {
+  padding-block: 16px calc(env(safe-area-inset-bottom,0)*2 + 16px);
 }
 
 h1,
@@ -51,6 +84,17 @@ h6,
 p {
   margin: 0;
   padding: 0 0 32px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  max-width: 60ch;
 }
 
 h1 {
@@ -85,7 +129,6 @@ li:not(:last-child) {
   header,
 main,
 footer {
-    margin: 0 auto;
     max-width: 1280px;
   }
 }

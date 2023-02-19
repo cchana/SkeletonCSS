@@ -3,33 +3,50 @@
 
 // base size
 $base: 8px;
+$maxWidth: $base*160;
 
 // animations
 $timing: .2s ease-in-out;
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--color-neutral-5);
     color: var(--color-neutral-0);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin: 0;
-    padding: $base*2;
+}
+
+body {
+    > {
+        header,
+        main,
+        footer {
+            // padding left/right: should be a maximum of the (page width - maxwidth)/2, but at least 2*$base
+            padding-inline: max(calc((100vw - #{$maxWidth})/2), $base*2);
+        }
+    }
 }
 
 header {
+    margin: 0 0 $base*2;
     nav {
+        padding: $base*4 0;
         ul {
             display: flex;
             list-style-type: none;
             margin: 0;
-            padding: 0 0 $base*4;
+            padding: 0;
             li {
                 flex: 1;
+                max-width: none;
                 &:not(:first-child) {
                     flex: 0;
                     margin: 0 0 0 $base*2;
@@ -37,6 +54,10 @@ header {
             }
         }
     }
+}
+
+footer {
+    padding-block: $base*2 calc(env(safe-area-inset-bottom,0)*2 + #{$base*2});
 }
 
 h1,
@@ -48,6 +69,17 @@ h6,
 p {
     margin: 0;
     padding: 0 0 $base*4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+    max-width: 60ch;
 }
 
 h1 {
@@ -83,8 +115,7 @@ li:not(:last-child) {
     header,
     main,
     footer {
-        margin: 0 auto;
-        max-width: $base*160;
+        max-width: $maxWidth;
     }
 }
 
