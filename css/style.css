@@ -28,6 +28,37 @@
   --color-pastels-13: #F0FFF055;
 }
 
+:root {
+  --base: 8px;
+  --size-0-25: calc(var(--base) * .25);
+  --size-0-5: calc(var(--base) * .5);
+  --size-1: var(--base);
+  --size-1-5: calc(var(--base) * 1.5);
+  --size-2: calc(var(--base) * 2);
+  --size-3: calc(var(--base) * 3);
+  --size-4: calc(var(--base) * 5);
+  --size-5: calc(var(--base) * 8);
+  --size-6: calc(var(--base) * 13);
+  --size-7: calc(var(--base) * 21);
+  --size-8: calc(var(--base) * 34);
+  --size-9: calc(var(--base) * 55);
+  --size-10: calc(var(--base) * 89);
+  --size-11: calc(var(--base) * 145);
+  --size-12: calc(var(--base) * 234);
+  --max-width: calc(var(--base)*160);
+  --timing: .2s ease-in-out;
+  font-size: clamp(100%, 90% + 0.5vi, 150%);
+  line-height: 1.35;
+  --font-size-xxxxl: 4rem;
+  --font-size-xxxl: 3rem;
+  --font-size-xxl: 2rem;
+  --font-size-xl: 1.6rem;
+  --font-size-lg: 1.2rem;
+  --font-size-md: 1rem;
+  --font-size-sm: .8rem;
+  --font-size-xs: .5rem;
+}
+
 html,
 body {
   margin: 0;
@@ -47,14 +78,14 @@ body {
 body > header,
 body > main,
 body > footer {
-  padding-inline: max((100vw - 1280px) / 2, 16px);
+  padding-inline: max((100vw - var(--max-width)) / 2, var(--size-2));
 }
 
 header {
-  margin: 0 0 16px;
+  margin: 0 0 var(--size-4);
 }
 header nav {
-  padding: 32px 0;
+  padding: var(--size-3) 0 var(--size-4);
 }
 header nav ul {
   display: flex;
@@ -68,11 +99,20 @@ header nav ul li {
 }
 header nav ul li:not(:first-child) {
   flex: 0;
-  margin: 0 0 0 16px;
+  margin: 0 0 0 var(--size-2);
 }
 
 footer {
-  padding-block: 16px calc(env(safe-area-inset-bottom,0)*2 + 16px);
+  padding-block: var(--size-4) calc(env(safe-area-inset-bottom, 0) * 2 + var(--size-4));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
 h1,
@@ -83,7 +123,7 @@ h5,
 h6,
 p {
   margin: 0;
-  padding: 0 0 32px;
+  padding-block: 0 var(--size-4);
 }
 
 h1,
@@ -94,42 +134,42 @@ h5,
 h6,
 p,
 li {
-  max-width: 60ch;
+  max-width: 65ch;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: var(--font-size-xxxl);
 }
 
 h2 {
-  font-size: 32px;
+  font-size: var(--font-size-xxl);
 }
 
 h3 {
-  font-size: 24px;
+  font-size: var(--font-size-xxl);
 }
 
 h4,
 h5,
 h6 {
-  font-size: 20px;
+  font-size: var(--font-size-xl);
 }
 
 ul,
 ol {
   margin: 0;
-  padding: 0 0 32px 32px;
+  padding: 0 0 var(--size-4) var(--size-4);
 }
 
 li:not(:last-child) {
-  margin: 0 0 8px;
+  margin: 0 0 var(--size-1);
 }
 
 @media screen and (min-width: 600px) {
   header,
 main,
 footer {
-    max-width: 1280px;
+    max-width: var(--max-width);
   }
 }
 @media (prefers-color-scheme: dark) {

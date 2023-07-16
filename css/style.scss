@@ -1,9 +1,42 @@
 @use "colors" as c;
 @use "mixins" as *;
 
-// base size
-$base: 8px;
-$maxWidth: $base*160;
+:root {
+    --base: 8px;
+
+    --size-0-25: calc(var(--base) * .25);   // * .25 = 2
+    --size-0-5:  calc(var(--base) * .5);    // * .5 = 4
+    --size-1:    var(--base);               // * 1 = 8
+    --size-1-5:  calc(var(--base) * 1.5);   // * 1.5 = 12
+    --size-2:    calc(var(--base) * 2);     // * 2 = 16
+    --size-3:    calc(var(--base) * 3);     // * 3 = 24
+    --size-4:    calc(var(--base) * 5);     // * 5 = 40
+    --size-5:    calc(var(--base) * 8);     // * 8 = 64
+    --size-6:    calc(var(--base) * 13);    // * 13 = 104
+    --size-7:    calc(var(--base) * 21);    // * 21 = 168
+    --size-8:    calc(var(--base) * 34);    // * 34 = 272
+    --size-9:    calc(var(--base) * 55);    // * 55 = 440
+    --size-10:   calc(var(--base) * 89);    // * 89 = 712
+    --size-11:   calc(var(--base) * 145);   // * 145 = 1160
+    --size-12:   calc(var(--base) * 234);   // * 234 = 1872
+
+    --max-width: calc(var(--base)*160);     // 1280
+
+    --timing: .2s ease-in-out;
+
+    // base font-size and line-height
+    font-size: clamp(100%, 90% + 0.5vi, 150%);
+    line-height: 1.35;
+
+    --font-size-xxxxl: 4rem;
+    --font-size-xxxl: 3rem;
+    --font-size-xxl: 2rem;
+    --font-size-xl: 1.6rem;
+    --font-size-lg: 1.2rem;
+    --font-size-md: 1rem;
+    --font-size-sm: .8rem;
+    --font-size-xs: .5rem;
+}
 
 // animations
 $timing: .2s ease-in-out;
@@ -29,16 +62,15 @@ body {
         header,
         main,
         footer {
-            // padding left/right: should be a maximum of the (page width - maxwidth)/2, but at least 2*$base
-            padding-inline: max(calc((100vw - #{$maxWidth})/2), $base*2);
+            padding-inline: max(calc((100vw - var(--max-width))/2), var(--size-2));
         }
     }
 }
 
 header {
-    margin: 0 0 $base*2;
+    margin: 0 0 var(--size-4);
     nav {
-        padding: $base*4 0;
+        padding: var(--size-3) 0 var(--size-4);
         ul {
             display: flex;
             list-style-type: none;
@@ -49,7 +81,7 @@ header {
                 max-width: none;
                 &:not(:first-child) {
                     flex: 0;
-                    margin: 0 0 0 $base*2;
+                    margin: 0 0 0 var(--size-2);
                 }
             }
         }
@@ -57,7 +89,16 @@ header {
 }
 
 footer {
-    padding-block: $base*2 calc(env(safe-area-inset-bottom,0)*2 + #{$base*2});
+    padding-block: var(--size-4) calc(env(safe-area-inset-bottom,0)*2 + var(--size-4));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
 }
 
 h1,
@@ -68,7 +109,7 @@ h5,
 h6,
 p {
     margin: 0;
-    padding: 0 0 $base*4;
+    padding-block: 0 var(--size-4);
 }
 
 h1,
@@ -79,35 +120,35 @@ h5,
 h6,
 p,
 li {
-    max-width: 60ch;
+    max-width: 65ch;
 }
 
 h1 {
-    font-size: $base*5;
+    font-size: var(--font-size-xxxl);
 }
 
 h2 {
-    font-size: $base*4;
+    font-size: var(--font-size-xxl);
 }
 
 h3 {
-    font-size: $base*3;
+    font-size: var(--font-size-xxl);
 }
 
 h4,
 h5,
 h6 {
-    font-size: $base*2.5;
+    font-size: var(--font-size-xl);
 }
 
 ul,
 ol {
     margin: 0;
-    padding: 0 0 $base*4 $base*4;
+    padding: 0 0 var(--size-4) var(--size-4);
 }
 
 li:not(:last-child) {
-    margin: 0 0 $base;
+    margin: 0 0 var(--size-1);
 }
 
 // landscape mode AND mobile devices+
@@ -115,7 +156,7 @@ li:not(:last-child) {
     header,
     main,
     footer {
-        max-width: $maxWidth;
+        max-width: var(--max-width);
     }
 }
 

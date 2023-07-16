@@ -74,6 +74,18 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/css\/theme-default.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/css\/theme-default-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/css\/theme-default.scss" : {
       "aP" : 0,
       "bl" : 0,
