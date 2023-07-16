@@ -101,12 +101,12 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/example.html" : {
+    "\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/example.html",
+      "oAP" : "\/index.html",
       "oF" : 0
     },
     "\/README.html" : {
