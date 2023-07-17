@@ -1,4 +1,7 @@
+@charset "UTF-8";
 :root {
+  --color-primary--5: hsl(20, 100%, 5%);
+  --color-primary--4: hsl(20, 100%, 10%);
   --color-primary--3: hsl(20, 100%, 20%);
   --color-primary--2: hsl(20, 100%, 30%);
   --color-primary--1: hsl(20, 100%, 40%);
@@ -6,6 +9,8 @@
   --color-primary-1: hsl(20, 100%, 60%);
   --color-primary-2: hsl(20, 100%, 70%);
   --color-primary-3: hsl(20, 100%, 80%);
+  --color-primary-4: hsl(20, 100%, 90%);
+  --color-primary-5: hsl(20, 100%, 95%);
   --color-neutral-0: hsl(0, 0%, 0%);
   --color-neutral-1: hsl(0, 0%, 20%);
   --color-neutral-2: hsl(0, 0%, 40%);
@@ -48,9 +53,9 @@
   --max-width: calc(var(--base)*160);
   --timing: .2s ease-in-out;
   font-size: clamp(100%, 90% + 0.5vi, 150%);
-  line-height: 1.35;
+  line-height: 1.5;
   --font-size-xxxxl: 4rem;
-  --font-size-xxxl: 3rem;
+  --font-size-xxxl: 2.9rem;
   --font-size-xxl: 2rem;
   --font-size-xl: 1.6rem;
   --font-size-lg: 1.2rem;
@@ -78,7 +83,7 @@ body {
 body > header,
 body > main,
 body > footer {
-  padding-inline: max((100vw - var(--max-width)) / 2, var(--size-2));
+  padding-inline: clamp(var(--size-2), (100% - var(--max-width)) / 2, 25%);
 }
 
 header {
@@ -102,6 +107,15 @@ header nav ul li:not(:first-child) {
   margin: 0 0 0 var(--size-2);
 }
 
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--color-primary--1);
+}
+
 footer {
   padding-block: var(--size-4) calc(env(safe-area-inset-bottom, 0) * 2 + var(--size-4));
 }
@@ -112,18 +126,32 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-block: 0 var(--size-3);
   text-wrap: balance;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding-block: 0 var(--size-4);
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  opacity: 0;
+  padding: var(--size-1);
+  text-decoration: none;
+  transition: opacity var(--timing);
+  vertical-align: middle;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a,
+h6:hover a {
+  opacity: 1;
 }
 
 h1,
@@ -138,38 +166,77 @@ li {
 }
 
 h1 {
-  font-size: var(--font-size-xxxl);
+  font-size: var(--font-size-xxxxl);
+  font-stretch: condensed;
+  font-weight: 900;
 }
 
 h2 {
   font-size: var(--font-size-xxl);
 }
 
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  content: "⤷ ";
+  display: block;
+  float: left;
+  font-size: var(--font-size-sm);
+  height: var(--size-4);
+  margin: var(--size-1-5) var(--size-1) 0 0;
+  opacity: 0.25;
+}
+
 h3 {
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xl);
 }
 
 h4,
 h5,
 h6 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
+}
+h4:before,
+h5:before,
+h6:before {
+  margin: var(--size-1) var(--size-1) 0 0;
+}
+
+p,
+ul,
+ol {
+  margin: 0;
+  padding-block: 0 var(--size-4);
+}
+p:has(+ p, + ul, + ol),
+ul:has(+ p, + ul, + ol),
+ol:has(+ p, + ul, + ol) {
+  padding-block-end: var(--size-3);
 }
 
 ul,
 ol {
-  margin: 0;
-  padding: 0 0 var(--size-4) var(--size-4);
+  padding-inline: var(--size-4);
 }
 
 li:not(:last-child) {
   margin: 0 0 var(--size-1);
 }
 
-@media screen and (min-width: 600px) {
-  header,
-main,
-footer {
-    max-width: var(--max-width);
+a {
+  color: var(--color-primary-0);
+  transition: color var(--timing);
+}
+a:hover, a:visited {
+  color: var(--color-primary--1);
+}
+
+@media screen and (min-width: 750px) {
+  p,
+ul,
+ol {
+    padding-block: 0 var(--size-5);
   }
 }
 @media (prefers-color-scheme: dark) {
