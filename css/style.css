@@ -239,9 +239,3 @@ ol {
     padding-block: 0 var(--size-5);
   }
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    background-color: var(--color-neutral-5);
-    color: var(--color-neutral-);
-  }
-}

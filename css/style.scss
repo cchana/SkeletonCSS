@@ -236,10 +236,7 @@ a {
 
 // dark mode prefered
 @media (prefers-color-scheme: dark) {
-    :root {
-        background-color: var(--color-neutral-5);
-        color: var(--color-neutral-);
-    }
+    // CSS here
 }
 
 // reduced motion prefered

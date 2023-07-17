@@ -1,11 +1,21 @@
 header {
     background-color: var(--color-pastels-3);
-    a {
-
-    }
 }
 
 footer {
     background-color: var(--color-neutral-0);
     color: var(--color-neutral-5);
+}
+
+// dark mode prefered
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-neutral-0);
+        color: var(--color-neutral-5);
+    }
+
+    footer {
+        background-color: var(--color-neutral-1);
+        color: var(--color-neutral-5);
+    }
 }
