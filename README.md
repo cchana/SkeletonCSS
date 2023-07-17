@@ -11,3 +11,5 @@ A skeleton SCSS file that can form the basis of any project.
     * Larger than a generic tablet
     * Laptops and desktops
 - Media query for dark mode
+
+Preview at [cchana.github.io/SkeletonCSS](https://cchana.github.io/SkeletonCSS/)
