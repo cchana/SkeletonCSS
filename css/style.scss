@@ -40,8 +40,11 @@
     --font-size-xs: .5rem;
 }
 
-// animations
-$timing: .2s ease-in-out;
+/*
+**
+** ELEMENTS
+**
+*/
 
 html,
 body {
@@ -54,7 +57,7 @@ html {
 }
 
 body {
-    background-color: var(--color-neutral-5);
+    background-color: var(--color-neutral-10);
     color: var(--color-neutral-0);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -81,6 +84,7 @@ header {
             li {
                 flex: 1;
                 max-width: none;
+                white-space: nowrap;
                 &:not(:first-child) {
                     flex: 0;
                     margin: 0 0 0 var(--size-2);
@@ -102,6 +106,7 @@ main {
 }
 
 footer {
+    margin-block: var(--size-6) 0;
     padding-block: var(--size-4) calc(env(safe-area-inset-bottom,0)*2 + var(--size-4));
 }
 
@@ -190,7 +195,8 @@ ul,
 ol {
     margin: 0;
     padding-block: 0 var(--size-4);
-    &:has(+ p, + ul, + ol) {
+    text-wrap: pretty;
+    &:has(+ p, + ul, + ol, + iframe) {
         padding-block-end: var(--size-3);
     }
 }
@@ -211,6 +217,49 @@ a {
     &:visited {
         color: var(--color-primary--1);
     }
+}
+
+pre:has(> code) {
+    margin-block: 0 var(--size-5);
+    code {
+        background-color: var(--color-neutral-9);
+        border-radius: var(--size-0-5);
+        display: block;
+        padding: var(--size-1-5) var(--size-3);
+        white-space: pre-wrap;
+    }
+}
+
+
+code {
+    padding: var(--size-0-5) var(--size-1);
+    p & {
+        background-color: var(--color-neutral-9);
+        border-radius: var(--size-0-5);
+        display: inline;
+    }
+}
+
+abbr {
+    text-decoration: {
+        color: var(--color-neutral-7-5);
+        style: wavy;
+    }
+    cursor: help;
+}
+
+/*
+**
+** CLASSES
+**
+*/
+
+iframe.embedded-video {
+    aspect-ratio: 16 / 9;
+    border: var(--size-0-5) solid var(--color-primary-0);
+    box-sizing: border-box;
+    margin-block: 0 var(--size-4);
+    width: 100%;
 }
 
 // landscape mode AND mobile devices+

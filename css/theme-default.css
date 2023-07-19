@@ -12,6 +12,18 @@ footer {
     background-color: var(--color-neutral-0);
     color: var(--color-neutral-5);
   }
+  header {
+    color: var(--color-neutral-0);
+  }
+  pre:has(> code) code {
+    background-color: var(--color-neutral-1);
+  }
+  code {
+    color: var(--color-neutral-95);
+  }
+  p code {
+    background-color: var(--color-neutral-1);
+  }
   footer {
     background-color: var(--color-neutral-1);
     color: var(--color-neutral-5);
