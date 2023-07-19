@@ -10,7 +10,7 @@ footer {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--color-neutral-0);
-    color: var(--color-neutral-5);
+    color: var(--color-neutral-75);
   }
   header {
     color: var(--color-neutral-0);
@@ -23,6 +23,9 @@ footer {
   }
   p code {
     background-color: var(--color-neutral-1);
+  }
+  abbr {
+    text-decoration-color: var(--color-neutral-3);
   }
   footer {
     background-color: var(--color-neutral-1);

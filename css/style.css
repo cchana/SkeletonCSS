@@ -279,7 +279,7 @@ p code {
 }
 
 abbr {
-  text-decoration-color: var(--color-neutral-7-5);
+  text-decoration-color: var(--color-neutral-75);
   text-decoration-style: wavy;
   cursor: help;
 }
