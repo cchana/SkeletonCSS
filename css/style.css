@@ -281,6 +281,8 @@ p code {
   background-color: var(--color-neutral-9);
   border-radius: var(--size-0-5);
   display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 abbr {
