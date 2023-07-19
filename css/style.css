@@ -263,10 +263,15 @@ pre:has(> code) {
 }
 pre:has(> code) code {
   background-color: var(--color-neutral-9);
+  border-color: var(--color-neutral-9);
   border-radius: var(--size-0-5);
+  border-style: solid;
+  border-width: var(--size-1-5) var(--size-3);
+  box-sizing: border-box;
   display: block;
-  padding: var(--size-1-5) var(--size-3);
-  white-space: pre-wrap;
+  max-width: 100%;
+  overflow: auto;
+  width: fit-content;
 }
 
 code {
