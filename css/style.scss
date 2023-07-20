@@ -108,6 +108,9 @@ main {
 footer {
     margin-block: var(--size-6) 0;
     padding-block: var(--size-4) calc(env(safe-area-inset-bottom,0)*2 + var(--size-4));
+    a {
+        text-wrap: nowrap;
+    }
 }
 
 h1,
@@ -152,14 +155,14 @@ li {
 
 h1 {
     font: {
-        size: var(--font-size-xxxxl);
+        size: clamp(var(--font-size-xxl), 100% + 5vi, var(--font-size-xxxxl));
         stretch: condensed;
         weight: 900;
     }
 }
 
 h2 {
-    font-size: var(--font-size-xxl);
+    size: clamp(var(--font-size-xl), 100% + 5vi, var(--font-size-xxl));
 }
 
 h3,
@@ -199,6 +202,10 @@ ol {
     &:has(+ p, + ul, + ol, + iframe) {
         padding-block-end: var(--size-3);
     }
+}
+
+p {
+    text-wrap: pretty;
 }
 
 ul,
@@ -270,6 +277,22 @@ iframe.embedded-video {
     box-sizing: border-box;
     margin-block: 0 var(--size-4);
     width: 100%;
+}
+
+pre.skeleton-logo {
+    color: var(--color-neutral-10);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+footer:has(.skeleton-logo) {
+    display: grid;
+    gap: var(--size-2);
+    grid-template-columns: auto fit-content(10%);
+    pre.skeleton-logo {
+        margin: 0;
+        width: fit-content;
+    }
 }
 
 // landscape mode AND mobile devices+
