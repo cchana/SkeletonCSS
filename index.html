@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SkeletonCSS example page</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css?ckcachebust=9C3FB784AA5D81F132B5CCD5E2CEA699" />
+    <link type="text/css" rel="stylesheet" href="css/style.css?ckcachebust=AD55AAC7D0A89BB6B3AFE301826A2CFB" />
     <link type="text/css" rel="stylesheet" href="css/theme-default.css?ckcachebust=3012AEA7650D6D983F0707DEE6CE87B8" />
 </head>
 <body>
@@ -30,12 +30,15 @@
 
         <p>Throughout my career, I've largely avoided reset files and worked with the quirks of CSS and rendering engines in mind. SkeletonCSS is a different take on a CSS library where you just get a base to work from.</p>
 
+        <blockquote>This is not a CSS reset</blockquote>
+
         <p>Built with <a href="https://sass-lang.com/">SASS</a>, the project ships with some basic mixins and themeing functionality:</p>
 
         <ul>
             <li><a href="#typography">Basic typography</a></li>
             <li><a href="#media-queries">Media queries</a></li>
             <li>Responsive layouts</li>
+            <li><a href="#forms">Forms</a></li>
             <li>Colour palettes</li>
             <li>Fibonacci based sizing</li>
         </ul>
@@ -52,6 +55,8 @@
             class="embedded-video"
             allowfullscreen>
         </iframe>
+
+        <p>To make embeds responsive, you just need to apply the <code>embedded-video</code> class.</p>
 
         <h3 id="typography-fonts">Fonts</h3>
 
@@ -108,6 +113,29 @@
         margin-block-end: 4rem;
     }
 }</code></pre>
+
+        <h2 id="forms">Forms</h2>
+
+        <form onsubmit="return false;">
+
+            <fieldset>
+                <legend>Example form</legend>
+                <ul>
+                    <li>
+                        <label for="example-text-form">Text</label>
+                        <input type="text" id="example-text-form" />
+                    </li>
+                    <li>
+                        <label for="example-password-form">Password</label>
+                        <input type="password" id="example-password-form" />
+                    </li>
+                    <li>
+                        <input type="submit">
+                    </li>
+                </ul>
+            </fieldset>
+
+        </form>
 
         <h2 id="using">Using SkeletonCSS?</h2>
 

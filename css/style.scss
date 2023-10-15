@@ -67,7 +67,7 @@ body {
         header,
         main,
         footer {
-            padding-inline: clamp(var(--size-2), (100% - var(--max-width))/2 , 25%);
+            padding-inline: max((100vw - var(--max-width)) / 2, var(--size-2));
         }
     }
 }
@@ -91,6 +91,9 @@ header {
                 }
             }
         }
+    }
+    > h1:first-child {
+        padding-block: var(--size-5) 0;
     }
 }
 
@@ -159,6 +162,10 @@ h1 {
         stretch: condensed;
         weight: 900;
     }
+    + p,
+    + h2 {
+        padding-block: 0 var(--size-4);
+    }
 }
 
 h2 {
@@ -199,8 +206,23 @@ ol {
     margin: 0;
     padding-block: 0 var(--size-4);
     text-wrap: pretty;
-    &:has(+ p, + ul, + ol, + iframe) {
+    &:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
         padding-block-end: var(--size-3);
+    }
+}
+
+blockquote {
+    background: var(--color-pastels-2);
+    margin: 0 0 var(--size-4);
+    font-style: italic;
+    padding: var(--size-2);
+    position: relative;
+    text-wrap: pretty;
+    &:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
+        margin-block-end: var(--size-3);
+    }
+    &:before {
+        content: '“';
     }
 }
 
@@ -215,6 +237,39 @@ ol {
 
 li:not(:last-child) {
     margin: 0 0 var(--size-1);
+}
+
+fieldset {
+    border: 0;
+    margin-block: 0 var(--size-4);
+    padding: 0;
+    legend {
+        display: none;
+    }
+    ol,
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li:not(:last-child) {
+            margin-block-end: var(--size-3);
+        }
+    }
+    label {
+        display: block;
+    }
+    input,
+    textarea {
+        font-size: var(--font-size-lg);
+    }
+    input[type="submit"],
+    button {
+        appearance: none;
+        -webkit-appearance: none;
+        border: 0;
+        border-radius: var(--size-1);
+        padding: var(--size-1) var(--size-3);
+    }
 }
 
 a {
@@ -265,13 +320,23 @@ abbr {
     cursor: help;
 }
 
+img,
+iframe,
+video {
+    width: 100%;
+}
+
+blockquote {
+    width: 65ch;
+}
+
 /*
 **
 ** CLASSES
 **
 */
 
-iframe.embedded-video {
+.embedded-video {
     aspect-ratio: 16 / 9;
     border: var(--size-0-5) solid var(--color-primary-0);
     box-sizing: border-box;
@@ -302,10 +367,19 @@ footer:has(.skeleton-logo) {
 
 // portrait tablets+
 @include mq(750px) {
+    h1 {
+        + p,
+        + h2 {
+            padding-block: 0 var(--size-5);
+        }
+    }
     p,
     ul,
     ol {
         padding-block: 0 var(--size-5);
+    }
+    fieldset {
+        margin-block: 0 var(--size-5);
     }
 }
 

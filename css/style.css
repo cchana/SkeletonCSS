@@ -103,7 +103,7 @@ body {
 body > header,
 body > main,
 body > footer {
-  padding-inline: clamp(var(--size-2), (100% - var(--max-width)) / 2, 25%);
+  padding-inline: max((100vw - var(--max-width)) / 2, var(--size-2));
 }
 
 header {
@@ -126,6 +126,9 @@ header nav ul li {
 header nav ul li:not(:first-child) {
   flex: 0;
   margin: 0 0 0 var(--size-2);
+}
+header > h1:first-child {
+  padding-block: var(--size-5) 0;
 }
 
 main h1,
@@ -198,6 +201,10 @@ h1 {
   font-stretch: condensed;
   font-weight: 900;
 }
+h1 + p,
+h1 + h2 {
+  padding-block: 0 var(--size-4);
+}
 
 h2 {
   size: clamp(var(--font-size-xl), 100% + 5vi, var(--font-size-xxl));
@@ -238,10 +245,25 @@ ol {
   padding-block: 0 var(--size-4);
   text-wrap: pretty;
 }
-p:has(+ p, + ul, + ol, + iframe),
-ul:has(+ p, + ul, + ol, + iframe),
-ol:has(+ p, + ul, + ol, + iframe) {
+p:has(+ p, + ul, + ol, + iframe, + video, + blockquote),
+ul:has(+ p, + ul, + ol, + iframe, + video, + blockquote),
+ol:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
   padding-block-end: var(--size-3);
+}
+
+blockquote {
+  background: var(--color-pastels-2);
+  margin: 0 0 var(--size-4);
+  font-style: italic;
+  padding: var(--size-2);
+  position: relative;
+  text-wrap: pretty;
+}
+blockquote:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
+  margin-block-end: var(--size-3);
+}
+blockquote:before {
+  content: "“";
 }
 
 p {
@@ -255,6 +277,40 @@ ol {
 
 li:not(:last-child) {
   margin: 0 0 var(--size-1);
+}
+
+fieldset {
+  border: 0;
+  margin-block: 0 var(--size-4);
+  padding: 0;
+}
+fieldset legend {
+  display: none;
+}
+fieldset ol,
+fieldset ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+fieldset ol li:not(:last-child),
+fieldset ul li:not(:last-child) {
+  margin-block-end: var(--size-3);
+}
+fieldset label {
+  display: block;
+}
+fieldset input,
+fieldset textarea {
+  font-size: var(--font-size-lg);
+}
+fieldset input[type=submit],
+fieldset button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: var(--size-1);
+  padding: var(--size-1) var(--size-3);
 }
 
 a {
@@ -298,12 +354,22 @@ abbr {
   cursor: help;
 }
 
+img,
+iframe,
+video {
+  width: 100%;
+}
+
+blockquote {
+  width: 65ch;
+}
+
 /*
 **
 ** CLASSES
 **
 */
-iframe.embedded-video {
+.embedded-video {
   aspect-ratio: 16/9;
   border: var(--size-0-5) solid var(--color-primary-0);
   box-sizing: border-box;
@@ -328,9 +394,16 @@ footer:has(.skeleton-logo) pre.skeleton-logo {
 }
 
 @media screen and (min-width: 750px) {
+  h1 + p,
+h1 + h2 {
+    padding-block: 0 var(--size-5);
+  }
   p,
 ul,
 ol {
     padding-block: 0 var(--size-5);
+  }
+  fieldset {
+    margin-block: 0 var(--size-5);
   }
 }
