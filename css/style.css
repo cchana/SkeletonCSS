@@ -262,9 +262,6 @@ blockquote {
 blockquote:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
   margin-block-end: var(--size-3);
 }
-blockquote:before {
-  content: "“";
-}
 
 p {
   text-wrap: pretty;

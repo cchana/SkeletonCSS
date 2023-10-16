@@ -221,9 +221,6 @@ blockquote {
     &:has(+ p, + ul, + ol, + iframe, + video, + blockquote) {
         margin-block-end: var(--size-3);
     }
-    &:before {
-        content: '“';
-    }
 }
 
 p {
