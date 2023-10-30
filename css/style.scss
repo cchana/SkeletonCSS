@@ -327,6 +327,13 @@ blockquote {
     width: 65ch;
 }
 
+hr {
+    appearance: none;
+    border: var(--size-0-25) solid var(--color-primary-0);
+    border-radius: var(--size-0-5);
+    margin-block-end: var(--size-5);
+}
+
 /*
 **
 ** CLASSES
